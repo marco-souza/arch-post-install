@@ -1,0 +1,62 @@
+# 1.0.0
+
+Packages Installed on:
+
+- yaourt:
+    - go
+    - vim
+    - zsh
+    - npm
+    - git
+    - zeal
+    - wine
+    - pencil
+    - kotlin
+    - docker
+    - yakuake
+    - vivaldi
+    - audacity
+    - go-tools
+    - sddm-kcm
+    - franz-bin
+    - filelight
+    - latte-dock
+    - python-pip
+    - gnome-boxes
+    - jdk8-openjdk
+    - jre8-openjdk
+    - google-chrome
+    - oh-my-zsh-git
+    - docker-compose
+    - docker-machine
+    - android-studio
+    - nylas-mail-bin
+    - atom-editor-bin
+    - kdeplasma-addons
+    - google-webdesigner
+    - visual-studio-code
+    - android-studio-canary
+    - intellij-idea-ultimate-edition
+
+- npm:
+    - gulp
+    - yarn
+    - babel
+    - eslint
+    - lodash
+    - express
+    - webpack
+    - nodemon
+    - typescript
+    - http-server
+    - coffeescript@next
+    - unsplash-wallpaper
+
+- pip:
+    - jupyter
+    - jupyterlab
+    - pandas
+    - sklearn
+    - numpy
+    - pylint
+    - autopep8

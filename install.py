@@ -55,6 +55,7 @@ packages = {
         "express",
         "webpack",
         "nodemon",
+        "flow-bin",
         "typescript",
         "http-server",
         "coffeescript@next",

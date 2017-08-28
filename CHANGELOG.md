@@ -47,6 +47,7 @@ Packages Installed on:
     - express
     - webpack
     - nodemon
+    - flow-bin
     - typescript
     - http-server
     - coffeescript@next

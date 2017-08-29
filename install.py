@@ -17,6 +17,7 @@ packages = {
         "git",
         "zeal",
         "wine",
+        "nginx",
         "pencil",
         "kotlin",
         "docker",

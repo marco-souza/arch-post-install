@@ -10,6 +10,7 @@ Packages Installed on:
     - git
     - zeal
     - wine
+    - nginx
     - pencil
     - kotlin
     - docker

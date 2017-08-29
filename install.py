@@ -60,6 +60,7 @@ packages = {
         "flow-typed",
         "typescript",
         "http-server",
+        "react-native-cli",
         "coffeescript@next",
         "unsplash-wallpaper",
     ],

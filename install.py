@@ -57,6 +57,7 @@ packages = {
         "webpack",
         "nodemon",
         "flow-bin",
+        "flow-typed",
         "typescript",
         "http-server",
         "coffeescript@next",

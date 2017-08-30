@@ -16,6 +16,7 @@ Packages Installed on:
     - docker
     - yakuake
     - vivaldi
+    - watchman
     - audacity
     - go-tools
     - sddm-kcm

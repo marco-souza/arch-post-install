@@ -23,6 +23,7 @@ packages = {
         "docker",
         "yakuake",
         "vivaldi",
+        "watchman",
         "audacity",
         "go-tools",
         "sddm-kcm",

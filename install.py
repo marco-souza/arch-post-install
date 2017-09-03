@@ -18,6 +18,7 @@ packages = {
         "zeal",
         "wine",
         "nginx",
+        "neovim",
         "pencil",
         "kotlin",
         "docker",
@@ -25,6 +26,7 @@ packages = {
         "vivaldi",
         "watchman",
         "audacity",
+        "anaconda",
         "go-tools",
         "sddm-kcm",
         "franz-bin",
@@ -76,9 +78,6 @@ packages = {
         "autopep8",
     ],
 }
-
-
-
 
 #   Main function:
 def main():

@@ -11,6 +11,7 @@ Packages Installed on:
     - zeal
     - wine
     - nginx
+    - neovim
     - pencil
     - kotlin
     - docker
@@ -18,6 +19,7 @@ Packages Installed on:
     - vivaldi
     - watchman
     - audacity
+    - anaconda
     - go-tools
     - sddm-kcm
     - franz-bin

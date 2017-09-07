@@ -44,6 +44,7 @@ packages = {
         "nylas-mail-bin",
         "atom-editor-bin",
         "kdeplasma-addons",
+        "jetbrains-toolbox",
         "google-webdesigner",
         "visual-studio-code",
         "android-studio-canary",

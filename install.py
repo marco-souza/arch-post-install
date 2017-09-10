@@ -63,6 +63,7 @@ packages = {
         "flow-bin",
         "flow-typed",
         "typescript",
+        "speed-test",
         "http-server",
         "react-native-cli",
         "coffeescript@next",

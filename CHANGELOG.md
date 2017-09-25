@@ -8,6 +8,7 @@ Packages Installed on:
     - zsh
     - npm
     - git
+    - axel
     - zeal
     - wine
     - nginx

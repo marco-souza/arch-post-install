@@ -15,6 +15,7 @@ packages = {
         "zsh",
         "npm",
         "git",
+        "axel",
         "zeal",
         "wine",
         "nginx",

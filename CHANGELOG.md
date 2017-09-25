@@ -8,9 +8,11 @@ Packages Installed on:
     - zsh
     - npm
     - git
+    - dia
     - axel
     - zeal
     - wine
+    - gimp
     - nginx
     - neovim
     - pencil

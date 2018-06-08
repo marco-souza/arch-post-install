@@ -1,0 +1,15 @@
+{
+  "system": [
+    "nodejs",
+    "npm",
+    "go",
+    "docker",
+    "docker-machine",
+    "go-tools",
+    "python-pip",
+    "nylas-mail"
+  ],
+  "node": [
+  ],
+  "python": []
+}

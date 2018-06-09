@@ -20,6 +20,9 @@ func main() {
 	// Update system
 	update()
 
+	// Install Dependencies
+	dependencies()
+
 	// Load config
 	loadConfig()
 
@@ -55,6 +58,12 @@ func install(system string, list []string) {
 // Update system
 func update() {
 	run("yaourt -Syu --noconfirm ")
+}
+
+// Install Dependencies
+func dependencies() {
+	// TODO: Install yaourt (the hard way)
+	run("yaourt -Sy --noconfirm git zsh")
 }
 
 // Load config

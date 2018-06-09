@@ -12,6 +12,17 @@ You are welcome to contribute and implemente installers for whatever Package Man
 4. Install `node` apps
 5. Install `pip` apps
 
+## How to use it
+
+Just clone the project, edit `arch-post-install/data/apps.json` to put your favorite apps and run `./post-install` from inside the cloned folder.
+
+```sh
+git clone https://github.com/marco-souza/arch-post-install.git && \
+cd arch-post-install && \
+./post-install
+
+```
+
 ## Define apps to be installed
 
 Here we open the `apps.json` which specify kinds of all apps to be installed.

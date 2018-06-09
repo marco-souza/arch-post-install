@@ -1,4 +1,14 @@
 
+# 2.1.0
+
+Features:
+
+    - Install dependencies
+    - Ordered install
+    - Update installed apps
+    - Use env configuration in for `zsh`
+
+
 # 2.0.0
 
 Features:
@@ -10,6 +20,7 @@ Features:
 Installed packages:
 
     You can change to install your prefered apps in `data/apps.json`
+
 
 # 1.0.0
 

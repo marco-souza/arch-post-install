@@ -2,9 +2,9 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
-	"fmt"
 )
 
 // DONE: Load apps
@@ -61,7 +61,7 @@ func update() {
 // Install Dependencies
 func dependencies() {
 	// TODO: Install yaourt (the hard way)
-	run("yaourt -Sy --noconfirm git zsh")
+	run("sudo pacman -Sy --noconfirm git zsh")
 }
 
 // Load config
@@ -83,7 +83,7 @@ func getInstaller(system string) (result string) {
 	case "3":
 		result = "pip install "
 	}
-	return 
+	return
 }
 
 // Wrap command on zsh, to allow local configs setted on zsh

@@ -4,15 +4,6 @@ A simple program to install my prefered packages after install Antergos.
 
 You are welcome to contribute and implemente installers for whatever Package Manager you want! 😉
 
-## Dependencies
-
-For now, this program expects you to already have installed:
-
-- yaourt
-- git
-
-Soon I'll make an installer for these dependencies.
-
 ## Steps
 
 1. Update sistem with yaourt

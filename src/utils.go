@@ -20,7 +20,8 @@ func unpack(list []string) string {
 
 // Run command
 func start() *exec.Cmd {
-	cmd := exec.Command("zsh", "-c", strings.TrimSpace(cmds))
+	cmd := exec.Command("bash", "-c", strings.TrimSpace(cmds))
+	fmt.Println("TO RUN -> \n", cmds)
 	cmd.Stdout = os.Stdout
 	cmd.Stdin = os.Stdin
 	cmd.Stderr = os.Stderr
@@ -29,9 +30,9 @@ func start() *exec.Cmd {
 }
 
 func run(command string) {
-	var sep = ""
-	if len(cmds) != 0 {
-		sep = " && "
+	sep := " && \\\n"
+	if cmds == "" {
+		sep = ""
 	}
-	cmds += cmds + sep + command
+	cmds += sep + command
 }

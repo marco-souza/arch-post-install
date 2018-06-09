@@ -4,14 +4,15 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"log"
+	"fmt"
 )
 
 // DONE: Load apps
-// TODO: Update system
-// TODO: Install system apps
-// TODO: Install node apps
-// TODO: Install python apps
-// TODO: Config .zshrc
+// DONE: Update system
+// DONE: Install system apps
+// DONE: Install node apps
+// DONE: Install python apps
+// DONE: Config .zshrc
 type jsonData map[string][]string
 
 func main() {
@@ -42,14 +43,11 @@ func install(system string, list []string) {
 
 	var cmd string
 
-	switch system {
-	case "system":
-		installer := getInstaller()
-		cmd = installer + unpack(list)
-	case "node":
-		cmd = "npm i -g " + unpack(list)
-	case "python":
-		cmd = "pip install " + unpack(list)
+	installer := getInstaller(system)
+	cmd = installer + unpack(list)
+
+	if system != "1" {
+		cmd = onZsh(cmd)
 	}
 
 	run(cmd)
@@ -57,7 +55,7 @@ func install(system string, list []string) {
 
 // Update system
 func update() {
-	run("yaourt -Syu --noconfirm ")
+	run("yaourt -Syu --noconfirm")
 }
 
 // Install Dependencies
@@ -68,18 +66,30 @@ func dependencies() {
 
 // Load config
 func loadConfig() {
-	run("git clone https://github.com/marco-souza/zshrc.git")
-	run("cd /tmp/zshrc")
+	dest := "/tmp/zshrc"
+	run("git clone https://github.com/marco-souza/zshrc.git " + dest)
+	run("cd " + dest)
 	run("./apply.sh")
 	run("cd -")
 }
 
-// Get installer
-func getInstaller() string {
-	// if runtime.GOOS == "darwin" {
-	// 	return "brew install cask "
-	// }
-	return "yaourt -Sy --noconfirm "
+// Get installer - Each installer is represented by a number
+func getInstaller(system string) (result string) {
+	switch system {
+	case "1":
+		result = "yaourt -Sy --noconfirm "
+	case "2":
+		result = "npm i -g "
+	case "3":
+		result = "pip install "
+	}
+	return 
+}
+
+// Wrap command on zsh, to allow local configs setted on zsh
+// like GOPATH, npm global repo, and so on
+func onZsh(cmd string) string {
+	return fmt.Sprintf("zsh -c '%s'", cmd)
 }
 
 // Get apps data

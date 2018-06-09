@@ -1,5 +1,5 @@
 {
-  "system": [
+  "1": [
     "go",
     "sl",
     "vim",
@@ -14,13 +14,11 @@
     "docker",
     "neovim",
     "kotlin",
+    "baobab",
     "vivaldi",
-    "fortune",
-    "anaconda",
-    "watchman",
+    "gparted",
     "go-tools",
     "franz-bin",
-    "filelight",
     "python-pip",
     "gnome-boxes",
     "jdk8-openjdk",
@@ -29,7 +27,7 @@
     "nylas-mail-bin",
     "visual-studio-code-insiders"
   ],
-  "node": [
+  "2": [
     "now",
     "gulp",
     "yarn",
@@ -49,5 +47,5 @@
     "create-react-app",
     "unsplash-wallpaper"
   ],
-  "python": []
+  "3": []
 }

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"log"
-	"runtime"
+	"strings"
 )
 
 // DONE: Load apps
@@ -28,6 +28,8 @@ func main() {
 	for i, v := range apps {
 		install(i, v)
 	}
+
+	start()
 }
 
 func install(system string, list []string) {
@@ -40,11 +42,7 @@ func install(system string, list []string) {
 
 	switch system {
 	case "system":
-		installer := "yaourt -Syu --noconfirm "
-		if runtime.GOOS == "darwin" {
-			installer = "brew install cask "
-		}
-
+		installer := getInstaller()
 		cmd = installer + unpack(list)
 	case "node":
 		cmd = "npm i -g " + unpack(list)
@@ -57,17 +55,25 @@ func install(system string, list []string) {
 
 // Update system
 func update() {
-	run("brew cask upgrade")
+	run("yaourt -Syu --noconfirm ")
 }
 
 // Load config
 func loadConfig() {
-	run(`
+	run(strings.TrimSpace(`
 		git clone https://github.com/marco-souza/zshrc.git &&
     cd zshrc &&
     ./apply.sh &&
     cd -
-	`)
+	`))
+}
+
+// Get installer
+func getInstaller() string {
+	// if runtime.GOOS == "darwin" {
+	// 	return "brew install cask "
+	// }
+	return "yaourt -Sy --noconfirm "
 }
 
 // Get apps data

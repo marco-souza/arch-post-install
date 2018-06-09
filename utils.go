@@ -7,6 +7,8 @@ import (
 	"strings"
 )
 
+var cmds string
+
 // Unpack list to string
 func unpack(list []string) string {
 	result := ""
@@ -17,11 +19,20 @@ func unpack(list []string) string {
 }
 
 // Run command
-func run(command string) *exec.Cmd {
-	cmd := exec.Command("bash", "-c", command)
+func start() *exec.Cmd {
+	cmd := exec.Command("bash", "-c", strings.TrimSpace(cmds))
 	cmd.Stdout = os.Stdout
 	cmd.Stdin = os.Stdin
 	cmd.Stderr = os.Stderr
 	cmd.Run()
 	return cmd
+}
+
+func run(command string) {
+	var sep = ""
+	if len(cmds) != 0 {
+		sep = " && "
+		// sep = " ; "
+	}
+	cmds += cmds + sep + command
 }

@@ -1,4 +1,16 @@
 
+# 2.0.0
+
+Features:
+
+    - now you just Have a binary and json file to specify which app you show install
+    - New version uses Go (Golang) 🤩
+    - Get the `zsh` working out-of-the box 👍
+
+Installed packages:
+
+    You can change to install your prefered apps in `data/apps.json`
+
 # 1.0.0
 
 Packages Installed on:

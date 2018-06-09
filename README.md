@@ -1,21 +1,32 @@
 # Arch Post Install
 
-A Simple Python Script to install my packages after a fresh install Arch Linux.
+A simple program to install my prefered packages after install Antergos.
 
-This script install Yoaourt, npm and pip packages.
+You are welcome to contribute and implemente installers for whatever Package Manager you want! 😉
+
+## Dependencies
+
+For now, this program expects you to already have installed:
+
+- yaourt
+- git
+
+Soon I'll make an installer for these dependencies.
 
 ## Steps
 
-### Configure terminal
+1. Update sistem with yaourt
+2. Setup zsh configuration based on `https://github.com/marco-souza/zshrc.git`
+3. Install `yaourt` apps
+4. Install `node` apps
+5. Install `pip` apps
 
-In this step we should just clone `https://github.com/marco-souza/zshrc.git` and execute `apply.sh`
-
-### Install apps
+## Define apps to be installed
 
 Here we open the `apps.json` which specify kinds of all apps to be installed.
 
 We support 3 kinds of apps:
 
-- system apps
-- nodejs apps
-- python apps
+- yaourt apps
+- npm apps
+- pip apps

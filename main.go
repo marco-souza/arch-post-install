@@ -2,12 +2,9 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
-	"io"
 	"io/ioutil"
 	"log"
-	"os/exec"
-	"strings"
+	"runtime"
 )
 
 // DONE: Load apps
@@ -19,37 +16,18 @@ import (
 type jsonData map[string][]string
 
 func main() {
-	// fmt.Println()
-	// apps := getApps()
-	// listApps := unpack(apps["system"])
-	// fmt.Println(listApps)
+	apps := getApps()
 
 	// Update system
-	// update()
+	update()
+
+	// Load config
+	loadConfig()
 
 	// Install each system
-	// for i, v := range apps {
-	// 	install(i, v)
-	// }
-
-	cmd := exec.Command("cat")
-	stdin, err := cmd.StdinPipe()
-	if err != nil {
-		log.Fatal(err)
+	for i, v := range apps {
+		install(i, v)
 	}
-
-	go func() {
-		defer stdin.Close()
-		io.WriteString(stdin, "values written to stdin are passed to cmd's standard input")
-	}()
-
-	out, err := cmd.CombinedOutput()
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Printf("%s\n", out)
-
 }
 
 func install(system string, list []string) {
@@ -58,48 +36,38 @@ func install(system string, list []string) {
 		return
 	}
 
-	var cmd *exec.Cmd
+	var cmd string
+
 	switch system {
 	case "system":
-		args := " -Sy --noconfirm " + unpack(list)
-		cmd = exec.Command("yaourt", args)
-		// fmt.Println("yaourt" + args)
+		installer := "yaourt -Syu --noconfirm "
+		if runtime.GOOS == "darwin" {
+			installer = "brew install cask "
+		}
 
+		cmd = installer + unpack(list)
 	case "node":
-		args := " i -g " + unpack(list)
-		cmd = exec.Command("npm", args)
-
+		cmd = "npm i -g " + unpack(list)
 	case "python":
-		args := " install " + unpack(list)
-		cmd = exec.Command("pip", args)
+		cmd = "pip install " + unpack(list)
 	}
-	// err := cmd.Start()
-	// if err != nil {
-	// 	log.Fatal(err)
-	// 	return
-	// }
 
-	fmt.Printf("%s \n", system)
-	out, err := cmd.Output()
-	if err != nil {
-		fmt.Printf("%s \n", out)
-		log.Fatal(err)
-	}
-	fmt.Printf("%s \n", out)
-}
-
-// Unpack list to string
-func unpack(list []string) string {
-	result := ""
-	for _, v := range list {
-		result += fmt.Sprintf(" %s", v)
-	}
-	return strings.TrimSpace(result)
+	run(cmd)
 }
 
 // Update system
 func update() {
-	exec.Command("yaourt", "-Syu")
+	run("brew cask upgrade")
+}
+
+// Load config
+func loadConfig() {
+	run(`
+		git clone https://github.com/marco-souza/zshrc.git &&
+    cd zshrc &&
+    ./apply.sh &&
+    cd -
+	`)
 }
 
 // Get apps data

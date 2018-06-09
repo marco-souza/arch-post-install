@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"log"
-	"strings"
 )
 
 // DONE: Load apps
@@ -60,12 +59,10 @@ func update() {
 
 // Load config
 func loadConfig() {
-	run(strings.TrimSpace(`
-		git clone https://github.com/marco-souza/zshrc.git &&
-    cd zshrc &&
-    ./apply.sh &&
-    cd -
-	`))
+	run("git clone https://github.com/marco-souza/zshrc.git")
+	run("cd /tmp/zshrc")
+	run("./apply.sh")
+	run("cd -")
 }
 
 // Get installer

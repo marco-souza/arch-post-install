@@ -14,3 +14,4 @@ release: build
 	git add .
 	git tag -a $v -m "Release $v"
 	git commit -m "REL : Release v$v"
+	git push

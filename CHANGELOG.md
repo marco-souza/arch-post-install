@@ -1,9 +1,15 @@
 
+# 2.1.2
+
+Fix:
+
+- Push on release pipeline
+
 # 2.1.1
 
 Features:
 
-- Release pipelineon `Makefile`
+- Release pipeline on `Makefile`
 
 # 2.1.0
 

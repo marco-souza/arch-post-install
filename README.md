@@ -36,4 +36,3 @@ We support 3 kinds of installers:
 ## Next steps
 
 - Install yaourt as dependency
-- Create a `release` pipeline in makefile

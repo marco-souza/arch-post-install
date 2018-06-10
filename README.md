@@ -23,12 +23,17 @@ cd arch-post-install && \
 
 ```
 
-## Define apps to be installed
+## Defining apps to be installed
 
-Here we open the `apps.json` which specify kinds of all apps to be installed.
+The file `data/apps.json` specifies apps for each installer.
 
-We support 3 kinds of apps:
+We support 3 kinds of installers:
 
-- yaourt apps
-- npm apps
-- pip apps
+- yaourt [1]
+- npm [2]
+- pip [3]
+
+## Next steps
+
+- Install yaourt as dependency
+- Create a `release` pipeline in makefile

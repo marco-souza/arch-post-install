@@ -1,6 +1,5 @@
 # Backlog
 
-- [ ] Make a bin checker (2)
 - [ ] Make a dependencies installer
   - [ ] yaourt (3)
   - [x] git (1)

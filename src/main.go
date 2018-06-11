@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"os"
 )
 
 // DONE: Load apps
@@ -21,15 +22,28 @@ func main() {
 	// Update system
 	update()
 
-	// Install Dependencies
-	dependencies()
+	// Check if a installer is specified
+	var installer string
+	if len(os.Args) > 1 {
+		// Get installer
+		installer = os.Args[1]
+	} else {
+		// Install Dependencies
+		dependencies()
 
-	// Load config
-	loadConfig()
+		// Load config
+		loadConfig()
+	}
 
 	// Install each system
 	for i, v := range apps {
-		install(i, v)
+		if installer != "" {
+			if installer == i {
+				install(installer, v)
+			}
+		} else {
+			install(i, v)
+		}
 	}
 
 	start()

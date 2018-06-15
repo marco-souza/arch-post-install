@@ -8,6 +8,7 @@
     "axel",
     "gimp",
     "nginx",
+    "hyper",
     "cowsay",
     "pencil",
     "nodejs",
@@ -22,6 +23,7 @@
     "python-pip",
     "gnome-boxes",
     "jdk8-openjdk",
+    "mellowplayer",
     "google-chrome",
     "docker-machine",
     "nylas-mail-bin",
@@ -44,7 +46,9 @@
     "http-server",
     "react-native-cli",
     "create-react-app",
-    "unsplash-wallpaper"
+    "yeoman-generator",
+    "unsplash-wallpaper",
+    "generator-generator"
   ],
   "3": []
 }

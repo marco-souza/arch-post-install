@@ -6,7 +6,7 @@ for PM in $(ls $DATA_LOCAL); do
 
   case $PM in
   yay) INSTALL_CDM="-Syu --noconfirm" ;;
-  pip) INSTALL_CDM="install" ;;
+  pip) INSTALL_CDM="install --user" ;;
   npm) INSTALL_CDM="i -g" ;;
   esac
 

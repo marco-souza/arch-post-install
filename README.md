@@ -1,6 +1,6 @@
 # Arch Post Install
 
-A simple program to install my prefered packages after install Antergos.
+> **WARNING**: this shell script should never be ran as sudo to avoid problems with python packages
 
 You are welcome to contribute and implemente installers for whatever Package Manager you want! 😉
 
@@ -12,7 +12,6 @@ Just clone the project, edit `arch-post-install/data/apps.json` to put your favo
 git clone https://github.com/marco-souza/arch-post-install.git && \
 cd arch-post-install && \
 ./post-install
-
 ```
 
 ## Defining apps to be installed

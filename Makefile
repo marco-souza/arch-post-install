@@ -1,7 +1,11 @@
 ALL: install
 
 deps:
+	git clone https://aur.archlinux.org/yay.git
+	cd yay
+	makepkg -si
 	yay -S install python-pip nodejs npm
 
-install: post-install.sh
+install: deps
+	sh post-install.sh
 

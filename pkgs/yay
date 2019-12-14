@@ -9,4 +9,6 @@ go-tools
 franz-bin
 mailspring
 google-chrome
+transmission-qt
+transmission-cli
 visual-studio-code-insiders

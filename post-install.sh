@@ -1,11 +1,10 @@
 #! /bin/sh
-if ! [ -x "$(command -v yay)" ]; then
-  git clone https://aur.archlinux.org/yay.git
-  cd yay && makepkg -si && cd .. && rm -rf yay
+if ! [ -x "$(command -v pip3)" ]; then
+  sudo apt install python3-pip
 fi
 
 if ! [ -x "$(command -v npm)" ]; then
-  yay -S install nodejs npm
+  sudo apt install nodejs npm aptitude
 fi
 
 export NPM_HOME=$HOME/.npm-global
@@ -17,14 +16,23 @@ DATA_LOCAL=./pkgs
 for PM in $(ls $DATA_LOCAL); do
   case $PM in
   yay) INSTALL_CDM="-Syu --noconfirm" ;;
+  apt) INSTALL_CDM="install -y" ;;
   pip) INSTALL_CDM="install --user" ;;
   npm) INSTALL_CDM="i -g" ;;
   esac
 
-  $PM $INSTALL_CDM $(cat $DATA_LOCAL/$PM)
+  case $PM in
+  apt) INSTALL_CDM="sudo $PM $INSTALL_CDM";;
+  *) INSTALL_CDM="$PM $INSTALL_CDM";;
+  esac
+
+  $INSTALL_CDM $(cat $DATA_LOCAL/$PM)
 done
 
-echo "Installing zsh configs..."
-git clone -q https://github.com/marco-souza/zshrc.git
+if [ ! -e 'zshrc' ];
+then
+  echo "Installing zsh configs..."
+  git clone -q https://github.com/marco-souza/zshrc.git#ubuntu
+fi
 cd zshrc
 make

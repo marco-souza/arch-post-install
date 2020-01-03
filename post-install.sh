@@ -32,7 +32,9 @@ done
 if [ ! -e 'zshrc' ];
 then
   echo "Installing zsh configs..."
-  git clone -q https://github.com/marco-souza/zshrc.git#ubuntu
+  DEST_PATH=/tmp/zshrc
+  git clone -q https://github.com/marco-souza/zshrc.git $DEST_PATH
+  cd $DEST_PATH
+  git checkout ubuntu
+  make apply
 fi
-cd zshrc
-make

@@ -4,5 +4,6 @@ zsh
 vim
 axel
 tmux
-docker
+docker-ce
+containerd.io
 transmission-cli

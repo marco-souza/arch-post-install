@@ -18,6 +18,7 @@ for PM in $(ls $DATA_LOCAL); do
   yay) INSTALL_CDM="-Syu --noconfirm" ;;
   apt) INSTALL_CDM="install -y" ;;
   pip) INSTALL_CDM="install --user" ;;
+  pip3) INSTALL_CDM="install" ;;
   npm) INSTALL_CDM="i -g" ;;
   esac
 

@@ -1,4 +1,4 @@
-ttc
+yo
 pnpm
 yarn
 eslint
@@ -8,4 +8,5 @@ standard
 typescript
 speed-test
 http-server
+generator-tremtec
 unsplash-wallpaper

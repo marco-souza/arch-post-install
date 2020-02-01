@@ -4,8 +4,12 @@ if ! [ -x "$(command -v yay)" ]; then
   cd yay && makepkg -si && cd .. && rm -rf yay
 fi
 
-if ! [ -x "$(command -v npm)" ]; then
-  yay -S install nodejs npm
+if ! [ -x "$(command -v pip3)" ]; then
+  yay -Syu python3-pip
+fi
+
+if ! [ -x "$(command -v npm)" ] ||  ! [ -x "$(command -v node)" ]; then
+  yay -Syu nodejs npm
 fi
 
 export NPM_HOME=$HOME/.npm-global
@@ -17,14 +21,24 @@ DATA_LOCAL=./pkgs
 for PM in $(ls $DATA_LOCAL); do
   case $PM in
   yay) INSTALL_CDM="-Syu --noconfirm" ;;
-  pip) INSTALL_CDM="install --user" ;;
+  apt) INSTALL_CDM="install -y" ;;
+  pip3) INSTALL_CDM="install --user" ;;
   npm) INSTALL_CDM="i -g" ;;
   esac
 
-  $PM $INSTALL_CDM $(cat $DATA_LOCAL/$PM)
+  case $PM in
+  pip3) INSTALL_CDM="sudo $PM $INSTALL_CDM";;
+  *) INSTALL_CDM="$PM $INSTALL_CDM";;
+  esac
+
+  $INSTALL_CDM $(cat $DATA_LOCAL/$PM)
 done
 
-echo "Installing zsh configs..."
-git clone -q https://github.com/marco-souza/zshrc.git
-cd zshrc
-make
+if [ ! -e 'zshrc' ];
+then
+  echo "Installing zsh configs..."
+  DEST_PATH=../zshrc
+  git clone -q https://github.com/marco-souza/zshrc.git $DEST_PATH
+  cd $DEST_PATH
+  make apply
+fi

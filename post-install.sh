@@ -18,6 +18,7 @@ for PM in $(ls $DATA_LOCAL); do
   yay) INSTALL_CDM="-Syu --noconfirm" ;;
   apt) INSTALL_CDM="install -y" ;;
   pip) INSTALL_CDM="install --user" ;;
+  pip3) INSTALL_CDM="install" ;;
   npm) INSTALL_CDM="i -g" ;;
   esac
 
@@ -32,7 +33,7 @@ done
 if [ ! -e 'zshrc' ];
 then
   echo "Installing zsh configs..."
-  DEST_PATH=/tmp/zshrc
+  DEST_PATH=../zshrc
   git clone -q https://github.com/marco-souza/zshrc.git $DEST_PATH
   cd $DEST_PATH
   git checkout ubuntu
